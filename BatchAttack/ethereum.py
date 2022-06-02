@@ -21,7 +21,7 @@ from rich.console import Console
 console = Console()
 console.clear()
 
-filexname = input('\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n [*] INSERT HERE File Name <---------|Without type file .txt|:::::::: ')
+filexname = 'words'
 
 mylist = []
 
