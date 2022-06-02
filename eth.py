@@ -9,23 +9,20 @@
 
 
 
-
-
 import codecs
 import hashlib
-import threading
+
 import ecdsa
 import requests
 from hdwallet import HDWallet
 from hdwallet.symbols import ETH as SYMBOL
 from lxml import html
 from rich.console import Console
-from rich.panel import Panel
 
 console = Console()
 console.clear()
 
-filexname = input('\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n [*] INSERT HERE File Name <---------|Without type file .txt|:::::::: ')
+filexname = input('\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n [*] INSERT HERE File Name <---------|Without type file .txt|:::::::: ')
 
 mylist = []
 
@@ -107,50 +104,39 @@ def bald(addr):
 	respone_block = requests.get(urlblock)
 	byte_string = respone_block.content
 	source_code = html.fromstring(byte_string)
-	xpatch_txid = '/html/body/main/div/div[2]/div[1]/table/tbody/tr[1]/td[2]'
+	xpatch_txid = '//*[@id="wrap"]/div/div[2]/div[1]/table/tbody/tr[2]/td[2]'
 	treetxid = source_code.xpath(xpatch_txid)
 	xVol = str(treetxid[0].text_content())
 	return xVol
 
 
-def MmDrza():
-	w = 0
-	count = 0
-	
-	for i in range(0, len(mylist)):
-		count += 1
-		passphrase = mylist[i]
-		wallet = BrainWallet()
-		private_key, address = wallet.generate_address_from_passphrase(passphrase)
-		hdwallet: HDWallet = HDWallet(symbol=SYMBOL)
-		hdwallet.from_private_key(private_key=private_key)
-		addr = hdwallet.p2pkh_address()
-		bal = bald(addr)
-		ifxETH = '0 ETH'
-		MmdrzaPanel = str(
-			'[gold1 on grey15]Total Checked: ' + '[orange_red1]' + str(count) + '[/][gold1 on grey15] ' + ' Win:' + '[white]' + str(w) + '[/][gold1]  BAL:[aquamarine1]' + str(bal) + '\n[/][gold1 on grey15]Addr: ' + '[white] ' + str(address) + '[gold1 on grey15]                  Passphrase: ' + '[orange_red1]' + str(passphrase) + '[/]\nPRIVATEKEY: [grey54]' + str(private_key) + '[/]')
-		style = "gold1 on grey11"
-		
-		if bal != ifxETH:
-			fx = open(u"ETH_Winner_________" + str(filexname) + "_MMDRZA.txt", "a")
-			fx.write('\nAddress Compressed : ' + address + '  Bal = ' + str(bal))
-			fx.write('\nPassphrase       : ' + passphrase)
-			fx.write('\nPrivate Key      : ' + private_key)
-			fx.write('\nBalance: ' + str(bal))
-			fx.write('\n-------------- Programmer Mmdrza.Com ----------------------\n')
-			fx.close()
-			console.print(Panel(str(MmdrzaPanel), title="[white]Win Wallet [/]", subtitle="[green_yellow blink] Mmdrza.Com [/]", style="red"), style=style, justify="full")
-			w += 1
-		else:
-			
-			console.print('[gold1]Total:[white]' + str(count) + '[/][gold1]-- Win:[white]' + str(w) + '[/][b magenta2] ETH [red1] ADDR[/]= ' + str(addr) + ' [khaki1] --[wheat1]-[cornsilk1]-[cornsilk1]-[wheat1]-[wheat1]-[khaki1]-[light_goldenrod1] B[yellow1]AL[yellow1]A[yellow2]N[yellow3]C[gold1]E: [orange3]' + str(bal) + '[/][yellow]  Passphrase:[green]' + str(passphrase) + '[/]')
+w = 0
+count = 0
 
-
-thr = threading.Thread(target=MmDrza)
-thr.start()
-thr.join()
-
-
+for i in range(0, len(mylist)):
+	count += 1
+	keywrd = mylist[i]
+	passphrase = str(keywrd)
+	wallet = BrainWallet()
+	private_key, address = wallet.generate_address_from_passphrase(passphrase)
+	hdwallet: HDWallet = HDWallet(symbol=SYMBOL)
+	hdwallet.from_private_key(private_key=private_key)
+	addr = hdwallet.p2pkh_address()
+	txid = bald(addr)
+	txer = []
+	# ifxETH = '0 ETH'
+	if int(txid) > 0:
+		fx = open("ETH_Winner_________" + str(filexname) + "_MMDRZA.txt", "a")
+		fx.write('\nAddress Compressed : ' + addr + '  Bal = ' + str(txid))
+		fx.write('\nPassphrase       : ' + passphrase)
+		fx.write('\nPrivate Key      : ' + private_key)
+		fx.write('\nBalance: ' + str(txid))
+		fx.write('\n-------------- Programmer Mmdrza.Com ----------------------\n')
+		fx.close()
+		w += 1
+		console.print('[gold1]Total:[/][white]' + str(count) + '[/][gold1]-- Win:[/][white]' + str(w) + '[/][magenta2] ETH [/][red1] ADDR[/]= [with on blue]' + str(addr) + '[/] [khaki1] --[wheat1]-[cornsilk1]-[cornsilk1]-[wheat1]-[wheat1]-[khaki1]-[light_goldenrod1] T[yellow1]O[yellow1]T[yellow2]A[yellow3]L[gold1] TX : [orange3]' + str(txid) + '[/][yellow]  Passphrase:[green]' + str(passphrase) + '[/]')
+	else:
+		console.print('[gold1]Total:[white]' + str(count) + '[/][gold1]-- Win:[white]' + str(w) + '[/][b magenta2] ETH [red1] ADDR[/]= ' + str(addr) + ' [khaki1] --[wheat1]-[cornsilk1]-[cornsilk1]-[wheat1]-[wheat1]-[khaki1]-[light_goldenrod1] T[yellow1]O[yellow1]T[yellow2]A[yellow3]L[gold1] TX : [orange3]' + str(txid) + '[/][yellow]  Passphrase:[green]' + str(passphrase) + '[/]')
 
 
 
