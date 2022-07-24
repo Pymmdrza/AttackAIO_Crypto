@@ -4,7 +4,7 @@
 
 ---
 
-Can Running This Script On [*REPLIT*](https://replit.com/@Pymmdrza/Attack-AIO-Crypto) - `All file for any coin imported here , just click on run button `
+Can Running This Script On [*REPLIT*](https://replit.com/join/loexutbcbd-pymmdrza) - `All file for any coin imported here , just click on run button `
 
 
 ## Attack and Crack Private Key AIO (ALL in ONE) All Cryptocurency from words [HACK]
