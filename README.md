@@ -10,9 +10,16 @@
 
 for using and runnig this script first install this package's on windows:
 
+
+First Update Pip on windows `python -m pip install --upgrade pip` and update pip3 from linux `python3 -m pip install --upgrade pip` after upgrade installing this package's : 
+
 ```
-python -m pip install --upgrade pip
-pip install hdwallet rich lxml bit colorama
+pip install requests-html
+pip install hdwallet
+pip install ecdsa
+pip install bit
+pip install rich
+pip install colorama
 
 ```
 ![](https://github.com/Pymmdrza/AttackAIO_Crypto/raw/mainx/media/AttackAiO_CRYPTO.gif)
