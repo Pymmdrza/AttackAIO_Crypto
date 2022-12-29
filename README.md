@@ -34,11 +34,21 @@ for running all attacker after install . just click to file `00BatchAttack.bat` 
 
 ---
 
+
+
 ![](https://github.com/Pymmdrza/AttackAIO_Crypto/raw/mainx/media/aioattack.jpg)
 
 Programmer Telegram ID [@MrPyMmdrza](https://t.me/MrPyMmdrza)
 
 Programmer Telegram Channel [@Cryptoixer](https://t.me/Cryptoixer)
+
+<p align="center">
+  <img height="80em" title="Discord ID : Pymmdrza#4490" src="https://discord.c99.nl/widget/theme-3/837342206540120065.png"/>
+</a>
+
+Discord Server [PyMmdrza](https://discord.gg/FQNxnVJM3U) Follow [Here.](https://discord.gg/FQNxnVJM3U)
+
+
 
 > **Warning**
 > Unfortunately, due to the ignorance of some dear users, we were not informed that some profiteers and uncultured people are selling some of my scripts at a lower price. And the user does not receive anything after payment. Some of these ignorant people give malicious and viral files to users. From here, I declare that the only official source for selling my scripts is the [website](https://mmdrza.com) and [Telegram ID](https://t.me/MrPyMmdrza) or [Telegram Channel](https://t.me/Cryptoixer).
