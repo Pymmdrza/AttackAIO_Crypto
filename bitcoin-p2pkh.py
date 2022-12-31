@@ -13,15 +13,10 @@ from rich.panel import Panel
 console = Console()
 console.clear()
 
-filexname = input(
-    '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n [*] INSERT HERE File Name <---------|Without type file .txt|:::::::: ')
+filer = input('\n[*] Just Enter the Desired Text File Name [HERE] : ')
 
-mylist = []
-
-filename = str(filexname + ".txt")
-with open(filename, newline='', encoding='utf-8') as f:
-    for line in f:
-        mylist.append(line.strip())
+filename = str(filer + ".txt")
+mylist = [i.strip() for i in open(filename).readlines()]
 
 
 class BrainWallet:
@@ -117,7 +112,7 @@ def MmDrza():
             passphrase) + '[/]\nPRIVATEKEY: [grey54]' + str(private_key) + '[/]')
         style = "gold1 on grey11"
         if bal != ifxbtc:
-            fx = open(u"BitcoinWinner_________" + str(filexname) + "_MMDRZA.txt", "a")
+            fx = open(u"BitcoinWinner_________" + str(filer) + "_MMDRZA.txt", "a")
             fx.write('\nAddress Compressed : ' + addr + '  Bal = ' + str(bal))
             fx.write('\nPassphrase       : ' + passphrase)
             fx.write('\nPrivate Key      : ' + private_key)
@@ -129,9 +124,7 @@ def MmDrza():
                       style="red"), style=style, justify="full")
             w += 1
         else:
-            console.print('[gold1]Total:[white]' + str(count) + '[/][gold1]-- Win:[white]' + str(
-                w) + '[/][b red1] Bitcoin [magenta2]P2PKH [/]:[gold1] ' + addr + ' [khaki1] --[wheat1]-[cornsilk1]-[cornsilk1]-[wheat1]-[wheat1]-[khaki1]-[light_goldenrod1] B[yellow1]AL[yellow1]A[yellow2]N[yellow3]C[gold1]E: [orange3]' + str(
-                bal) + '[/][yellow]  Passphrase:[green]' + str(passphrase) + '[/]')
+            print(f"{count} - Found:{w} # Addr: {addr} ~ Value:{bal} #Passphrase: {passphrase}")
             continue
 
 
