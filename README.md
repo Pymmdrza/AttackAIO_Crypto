@@ -22,6 +22,37 @@ pip install rich
 pip install colorama
 
 ```
+---
+### Bitcoin Private Key crack and decode from Brain Alphawords.
+
+#### screen record from [`bitcoin.py`](https://github.com/Pymmdrza/AttackAIO_Crypto/blob/mainx/bitcoin.py):
+
+[![asciicast](https://asciinema.org/a/548828.svg)](https://asciinema.org/a/548828)
+
+---
+### Bitcoin Gold Private Key crack and decode from Brain Alphawords.
+
+#### screen record from [`btg.py`](https://github.com/Pymmdrza/AttackAIO_Crypto/blob/mainx/btg.py):
+
+[![Bitcoin Gold screen recorder](https://asciinema.org/a/548836.svg)](https://asciinema.org/a/548836)
+---
+
+### DASH Private Key crack and decode from Brain Alphawords.
+
+#### screen record from [`dash.py`](https://github.com/Pymmdrza/AttackAIO_Crypto/blob/mainx/dash.py):
+
+[![asciicast](https://asciinema.org/a/548835.svg)](https://asciinema.org/a/548835)
+
+---
+
+
+### DOGECOIN Private Key crack and decode from Brain Alphawords.
+
+#### screen record from [`doge.py`](https://github.com/Pymmdrza/AttackAIO_Crypto/blob/mainx/doge.py):
+
+[![asciicast](https://asciinema.org/a/548830.svg)](https://asciinema.org/a/548830)
+
+
 ![](https://github.com/Pymmdrza/AttackAIO_Crypto/raw/mainx/media/AttackAiO_CRYPTO.gif)
 
 or can use easy install file `000install.bat` [this link](https://github.com/Pymmdrza/AttackAIO_Crypto/blob/mainx/000install.bat)
